@@ -43,12 +43,9 @@ const Feed = () => {
       <Spinner message={`We are adding ${ideaName} ideas to your feed!`} />
     );
   }
-  const testPins = () => {
-    console.log(pins)
-  }
+ 
    return (
     <div>
-      <button onClick={testPins}>testPins</button>
       {pins && (
         <MasonryLayout pins={pins} />
       )}

@@ -93,7 +93,6 @@ const Sidebar = ({ closeToggle, user }) => {
           ))}
         </div>
       </div>
-      <button onClick={test}>test</button>
       {user && (
         <Link
           to={`user-profile/${user._id}`}
