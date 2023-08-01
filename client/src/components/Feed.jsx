@@ -12,6 +12,15 @@ const Feed = () => {
   const { categoryId } = useParams();
 
   useEffect(() => {
+    client.fetch(feedQuery).then((data) => {
+      setPins(data);
+      setLoading(false);
+    });
+  })
+  
+  
+  
+  useEffect(() => {
     if (categoryId) {
       setLoading(true);
       const query = searchQuery(categoryId);
@@ -34,8 +43,12 @@ const Feed = () => {
       <Spinner message={`We are adding ${ideaName} ideas to your feed!`} />
     );
   }
-  return (
+  const testPins = () => {
+    console.log(pins)
+  }
+   return (
     <div>
+      <button onClick={testPins}>testPins</button>
       {pins && (
         <MasonryLayout pins={pins} />
       )}

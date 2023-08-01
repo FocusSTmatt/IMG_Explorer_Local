@@ -7,7 +7,7 @@ import { categories } from '../utils/data';
 import { client } from '../client';
 import Spinner from './Spinner';
 
-const CreatePin = ({ user }) => {
+const CreatePin = ({ user, pins }) => {
   const [title, setTitle] = useState('');
   const [about, setAbout] = useState('');
   const [loading, setLoading] = useState(false);
@@ -40,6 +40,7 @@ const CreatePin = ({ user }) => {
     }
   };
 
+
   const savePin = () => {
     if (title && about && destination && imageAsset?._id && category) {
       const doc = {
@@ -62,17 +63,16 @@ const CreatePin = ({ user }) => {
         category,
       };
       client.create(doc).then(() => {
-            navigate('/');
-         
-      });
+        
+        navigate("/")
+          
+          
+          
+      })
     } else {
-      setTimeout(
-        () => {
-          setFields(true);
-        },
-        1000,
-      );
-
+    
+       setFields(true);
+    
       setTimeout(
         () => {
           setFields(false);
@@ -83,8 +83,8 @@ const CreatePin = ({ user }) => {
   };
 
   useEffect(() => {
-    console.log("Pin Added")
-  },[setFields])
+    console.log(pins)
+  },[])
 
 
   return (

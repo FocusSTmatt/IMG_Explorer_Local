@@ -33,7 +33,7 @@ const PinDetail = ({ user }) => {
         });
       }
     })
-  }, [])
+  }, [pinId])
 
   const addComment = () => {
     if (comment) {

@@ -10,6 +10,7 @@ import Pins from './Pins';
 import logoB from '../assets/logo-b.png';
 import logoW from '../assets/logo-w.png';
 import Logo from '../components/Logo';
+import Feed from '../components/Feed';
 
 const Home = ({theme, isActive}) => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
@@ -70,6 +71,7 @@ const Home = ({theme, isActive}) => {
         <Routes>
           <Route path="/user-profile/:userId" element={<UserProfile />} />
           <Route path="/*" element={<Pins user={user && user} />} />
+          <Route path="/*" element={<Feed user={user && user} />} />
         </Routes>
       </div>
     </div>
